@@ -35,32 +35,25 @@
 
 // components/Header/Header.tsx
 
-import styles from "./Header.module.css";
-import Link from "next/link";
-import TagsMenu from "@/components/TagsMenu/TagsMenu";
-import AuthNavigation from "@/components/AuthNavigation/AuthNavigation";
 
-const Header = () => {
+
+
+// components/Header/Header.tsx
+import AuthNavigation from '@/components/AuthNavigation/AuthNavigation';
+import css from './Header.module.css';
+
+export default function Header() {
   return (
-    <header className={styles.header}>
-      <Link href="/" aria-label="Home" className={styles.headerLink}>
-        NoteHub
-      </Link>
-      <nav aria-label="Main Navigation">
-        <ul className={styles.navigation}>
-          <li className={styles.navigationItem}>
-            <Link href="/" className={styles.navigationLink}>
-              Home
-            </Link>
-          </li>
-          <li className={styles.navigationItem}>
-            <TagsMenu />
-          </li>
+    <header className={css.header}>
+      <nav className={css.nav}>
+        <div className={css.logo}>
+          <a href="/">NoteHub</a>
+        </div>
+        <ul className={css.navigation}>
+          {/* Existing navigation items */}
           <AuthNavigation />
         </ul>
       </nav>
     </header>
   );
-};
-
-export default Header;
+}

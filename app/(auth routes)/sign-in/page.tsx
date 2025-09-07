@@ -1,17 +1,17 @@
-// app/(auth routes)/sign-up/page.tsx
+// app/(auth routes)/sign-in/page.tsx
 
-
-// app/(auth routes)/sign-up/page.tsx
+// app/(auth routes)/sign-in/page.tsx
 'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { authApi } from '@/lib/api/clientApi';
 import { useAuthStore } from '@/lib/store/authStore';
-import css from '@/app/(auth routes)/sign-up/SignUpPage.module.css';
+
+import css from '@/app/(auth routes)/sign-in/SignInPage.module.css';
 
 
-export default function SignUp() {
+export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -25,11 +25,11 @@ export default function SignUp() {
     setError('');
 
     try {
-      const user = await authApi.register({ email, password });
+      const user = await authApi.login({ email, password });
       setUser(user);
       router.push('/profile');
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Registration failed');
+      setError(err.response?.data?.message || 'Login failed');
     } finally {
       setIsLoading(false);
     }
@@ -37,8 +37,9 @@ export default function SignUp() {
 
   return (
     <main className={css.mainContent}>
-      <h1 className={css.formTitle}>Sign up</h1>
       <form className={css.form} onSubmit={handleSubmit}>
+        <h1 className={css.formTitle}>Sign in</h1>
+
         <div className={css.formGroup}>
           <label htmlFor="email">Email</label>
           <input
@@ -71,7 +72,7 @@ export default function SignUp() {
             className={css.submitButton}
             disabled={isLoading}
           >
-            {isLoading ? 'Registering...' : 'Register'}
+            {isLoading ? 'Logging in...' : 'Log in'}
           </button>
         </div>
 

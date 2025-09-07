@@ -90,7 +90,7 @@
 import { serverApi } from "@/lib/api/serverApi"; // Змінено імпорт
 
 
-import NotesClient from "@/app/notes/filter/[...slug]/Notes.client";
+import NotesClient from "@/app/(private routes)/notes/filter/[...slug]/Notes.client";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { HydrationBoundary } from "@tanstack/react-query";
 import { Metadata } from "next";

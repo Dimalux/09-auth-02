@@ -131,21 +131,51 @@
 
 // lib/api/api.ts
 
+
+// import axios from 'axios';
+
+// export const api = axios.create({
+//   baseURL: 'https://notehub-api.goit.study',
+//   withCredentials: true,
+// });
+
+// api.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     console.error('API Error:', error);
+//     return Promise.reject(error);
+//   }
+// );
+
+
+
+
 import axios from 'axios';
 
 const baseURL = process.env.NEXT_PUBLIC_API_URL + '/api';
 
-// Створення спільного екземпляра axios
 export const api = axios.create({
   baseURL,
   withCredentials: true,
 });
 
-// Додаємо інтерцептори для обробки помилок
+// Request interceptor
+api.interceptors.request.use(
+  (config) => {
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// Response interceptor
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error('API Error:', error);
+    if (error.response?.status === 401) {
+      // Handle unauthorized access
+    }
     return Promise.reject(error);
   }
 );
