@@ -1,5 +1,7 @@
 // app/notes/layout.tsx
 
+import styles from "@/app/(private routes)/notes/layout.module.css";
+
 export default function NotesLayout({
   children,
 }: {

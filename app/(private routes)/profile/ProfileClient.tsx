@@ -1,7 +1,8 @@
 'use client';
 
 import { User } from '@/types/user';
-import css from './Profile.module.css';
+
+import css from '@/app/(private routes)/profile/ProfilePage.module.css';
 
 interface ProfileClientProps {
   user: User;
