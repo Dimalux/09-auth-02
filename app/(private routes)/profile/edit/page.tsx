@@ -1,8 +1,6 @@
 // app/(private routes)/profile/page.tsx
 
 
-
-
 'use client';
 
 import { useState } from 'react';
@@ -11,7 +9,9 @@ import Image from 'next/image';
 import { User } from '@/types/user';
 import { usersApi } from '@/lib/api/clientApi';
 import { useAuthStore } from '@/lib/store/authStore';
-import css from './EditProfile.module.css';
+import css from '@/app/(private routes)/profile/edit/EditProfilePage.module.css';
+
+
 
 export default function EditProfilePage() {
   const { user, setUser } = useAuthStore();
