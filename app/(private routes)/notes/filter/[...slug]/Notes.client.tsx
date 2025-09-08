@@ -13,9 +13,7 @@ import { notesApi } from "@/lib/api/clientApi"; // Змінено імпорт
 import NoteList from "@/components/NoteList/NoteList";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
-import styles from "@/app/notes/filter/[...slug]/page.module.css";
-
-
+import styles from "@/app/(private routes)/notes/filter/[...slug]/page.module.css";
 
 
 interface NotesClientProps {
